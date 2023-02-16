@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import ray
-import sphere
+import geometry
 
 # A class to encapsulate everything about a scene: image resolution, scene objects, light properties
 class Scene(object):
