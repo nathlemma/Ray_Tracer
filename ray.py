@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
 class Rays(object):
 
     def __init__(self, Os, Ds):
