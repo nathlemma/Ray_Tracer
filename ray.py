@@ -8,8 +8,18 @@ class Rays(object):
         Initializes a bundle of rays containing the rays'
         origins and directions.
         """
-        self.Os = np.copy(Os)
-        self.Ds = np.copy(Ds)
+        if Os.shape[0] != Ds.shape[0]:
+            if Ds.shape[0] == 1:
+                self.Os = np.copy(Os)
+                self.Ds = np.copy(Os)
+                self.Ds[:, :] = Ds[:, :]
+            if Os.shape[0] == 1:
+                self.Ds = np.copy(Ds)
+                self.Os = np.copy(Ds)
+                self.Os[:, :] = Os[:, :]
+        else:
+            self.Os = np.copy(Os)
+            self.Ds = np.copy(Ds)
 
     def __call__(self, t):
         """
