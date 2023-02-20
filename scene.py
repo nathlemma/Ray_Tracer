@@ -3,6 +3,17 @@ import numpy as np
 import ray
 import geometry
 
+def normalize(v):
+    """
+    Returns the normalized vector given vector v.
+    Note - This function is only for normalizing 1D vectors instead of batched 2D vectors.
+    """
+    norm = np.linalg.norm(v)
+    if norm == 0:
+        return v
+    return v / norm
+
+UNIFORM_SAMPLING, COSINE_SAMPLING = range(2)
 # A class to encapsulate everything about a scene: image resolution, scene objects, light properties
 class Scene(object):
     REFRACTIVE_INDEX_OUT = 1.0
